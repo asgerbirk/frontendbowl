@@ -2,7 +2,7 @@ export const Home = () =>{
 
     return(
         <div>
-            hedsd
+            has
         </div>
     )
 }

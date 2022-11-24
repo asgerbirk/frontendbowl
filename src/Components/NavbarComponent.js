@@ -7,6 +7,7 @@ import myLogo from "./bowllogo.jpg"
 import {NavbarBrand} from "react-bootstrap";
 
 export const NavbarComponent = () => {
+
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
