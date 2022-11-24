@@ -12,7 +12,7 @@ export const BowlingReservation = () =>{
     const [email, setEmail] = useState("");
     const [reservationStart, setReservationStart] = useState("");
     const [reservationEnd, setReservationEnd] = useState("");
-    const [numberOfPersons, setNumberOfPersons] = useState("");
+    const [numberOfPeople, setNumberOfPeople] = useState("");
 
     //Sub Attributes for subclass bowlingreservations
     const [countOfLanes, setCountOfLanes] = useState("");
@@ -40,7 +40,7 @@ export const BowlingReservation = () =>{
 
         const handleSubmit = async (e) =>{
             e.preventDefault();
-            mutate({name, email, reservationStart, reservationEnd, numberOfPersons, countOfLanes, laneNum1, laneNum2, laneNum3, laneNum4})
+            mutate({name, email, reservationStart, reservationEnd, numberOfPeople})
             navigate("/")
         }
 
@@ -71,7 +71,7 @@ export const BowlingReservation = () =>{
                                 Name
                             </label>
                             <input
-                                type={"email"}
+                                type={"text"}
                                 className="form-control"
                                 placeholder="Enter your age"
                                 name="email"
@@ -84,7 +84,7 @@ export const BowlingReservation = () =>{
                                 Final time
                             </label>
                             <input
-                                type={"date"}
+                                type={"number"}
                                 className="form-control"
                                 placeholder="reservation start"
                                 name="reservationStart"
@@ -96,17 +96,15 @@ export const BowlingReservation = () =>{
                             <label htmlFor="Email" className="form-label">
                                 mountain points
                             </label>
-                            <Form.Select>
-                                <option>Default select</option>
-                                <option value="1">10-11</option>
-                                <option value="2">11-12</option>
-                                <option value="3">12-13</option>
-                                <option value="3">13-14</option>
-                                <option value="3">14-15</option>
-                                <option value="3">15-16</option>
-                                <option value="3">16-17</option>
-                                <option value="3">17-18</option>
-                            </Form.Select>
+                            <input
+                                type={"number"}
+                                className="form-control"
+                                placeholder="number of persons"
+                                name="reservationEnd"
+                                value={reservationEnd}
+                                onChange={(e) => setReservationEnd(e.target.value)}
+                            />
+
                         </div>
                         <div className="mb-3">
                             <label htmlFor="Email" className="form-label">
@@ -117,8 +115,8 @@ export const BowlingReservation = () =>{
                                 className="form-control"
                                 placeholder="number of persons"
                                 name="numberOfPersons"
-                                value={numberOfPersons}
-                                onChange={(e) => setNumberOfPersons(e.target.value)}
+                                value={numberOfPeople}
+                                onChange={(e) => setNumberOfPeople(e.target.value)}
                             />
                         </div>
                         <button onClick={reset} type="submit" className="btn btn-outline-primary">
