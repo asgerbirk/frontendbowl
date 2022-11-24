@@ -84,7 +84,7 @@ export const BowlingReservation = () =>{
                                 Final time
                             </label>
                             <input
-                                type={"number"}
+                                type={"time"}
                                 className="form-control"
                                 placeholder="reservation start"
                                 name="reservationStart"
@@ -97,7 +97,7 @@ export const BowlingReservation = () =>{
                                 mountain points
                             </label>
                             <input
-                                type={"number"}
+                                type={"time"}
                                 className="form-control"
                                 placeholder="number of persons"
                                 name="reservationEnd"
