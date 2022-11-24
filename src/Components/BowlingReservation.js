@@ -13,6 +13,7 @@ export const BowlingReservation = () =>{
     const [reservationStart, setReservationStart] = useState("");
     const [reservationEnd, setReservationEnd] = useState("");
     const [numberOfPeople, setNumberOfPeople] = useState("");
+    const [date, setDate] = useState("");
 
     //Sub Attributes for subclass bowlingreservations
     const [countOfLanes, setCountOfLanes] = useState("");
@@ -40,7 +41,7 @@ export const BowlingReservation = () =>{
 
         const handleSubmit = async (e) =>{
             e.preventDefault();
-            mutate({name, email, reservationStart, reservationEnd, numberOfPeople})
+            mutate({name, email, reservationStart, reservationEnd, numberOfPeople,date})
             navigate("/")
         }
 
@@ -67,21 +68,34 @@ export const BowlingReservation = () =>{
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Name" className="form-label">
-                                Name
+                            <label htmlFor="Email" className="form-label">
+                                Email
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your age"
+                                placeholder="Enter your email"
                                 name="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="finalTime" className="form-label">
-                                Final time
+                            <label htmlFor="Date" className="form-label">
+                                Date
+                            </label>
+                            <input
+                                type={"date"}
+                                className="form-control"
+                                placeholder="date"
+                                name="date"
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="reservationStart" className="form-label">
+                                Reservation start
                             </label>
                             <input
                                 type={"time"}
@@ -93,13 +107,13 @@ export const BowlingReservation = () =>{
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Email" className="form-label">
-                                mountain points
+                            <label htmlFor="reservationEnd" className="form-label">
+                                Reservation end
                             </label>
                             <input
                                 type={"time"}
                                 className="form-control"
-                                placeholder="number of persons"
+                                placeholder="Reservation end"
                                 name="reservationEnd"
                                 value={reservationEnd}
                                 onChange={(e) => setReservationEnd(e.target.value)}
@@ -107,8 +121,8 @@ export const BowlingReservation = () =>{
 
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Email" className="form-label">
-                                Sprint points
+                            <label htmlFor="NumberOfPerson" className="form-label">
+                                Number of persons
                             </label>
                             <input
                                 type={"number"}
