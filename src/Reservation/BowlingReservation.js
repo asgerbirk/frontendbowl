@@ -1,7 +1,7 @@
 import {Form} from "react-bootstrap";
 import {Link, useNavigate} from "react-router-dom";
 import {useMutation, useQueryClient} from "react-query";
-import {createBowlingReservation, fetchAllBowlingReservations} from "./Queries";
+import {createBowlingReservation} from "../Components/Queries";
 import {useState} from "react";
 
 export const BowlingReservation = () =>{
@@ -15,12 +15,7 @@ export const BowlingReservation = () =>{
     const [numberOfPeople, setNumberOfPeople] = useState("");
     const [date, setDate] = useState("");
 
-    //Sub Attributes for subclass bowlingreservations
-    const [countOfLanes, setCountOfLanes] = useState("");
-    const [laneNum1, setLaneNum1] = useState("");
-    const [laneNum2, setLaneNum2] = useState("");
-    const [laneNum3, setLaneNum3] = useState("");
-    const [laneNum4, setLaneNum4] = useState("");
+
 
 
     const queryClient = useQueryClient();
@@ -73,6 +68,7 @@ export const BowlingReservation = () =>{
                             </label>
                             <input
                                 type={"text"}
+                                step="900"
                                 className="form-control"
                                 placeholder="Enter your email"
                                 name="email"

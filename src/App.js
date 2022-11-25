@@ -1,6 +1,6 @@
 import {NavbarComponent} from "./Components/NavbarComponent";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BowlingReservation} from "./Components/BowlingReservation";
+import {BowlingReservation} from "./Reservation/BowlingReservation";
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import {Home} from "./Components/Home";
