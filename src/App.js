@@ -4,6 +4,7 @@ import {BowlingReservation} from "./Reservation/BowlingReservation";
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import {Home} from "./Components/Home";
+import {AllBookings} from "./Reservation/AllBookings";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
             <Routes>
                 <Route exact path ="/" element={<Home/>}/>
                 <Route exact path ="/bowlingReservation" element={<BowlingReservation/>}/>
+                <Route exact path ="/allBookings" element={<AllBookings/>}/>
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>
             </Routes>
         </Router>

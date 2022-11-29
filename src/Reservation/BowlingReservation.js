@@ -17,10 +17,12 @@ export const BowlingReservation = () =>{
 
 
 
+
+
     const queryClient = useQueryClient();
     let navigate = useNavigate();
 
-    const {mutate, isError, isLoading, reset} = useMutation(createBowlingReservation, {onSuccess: () => {
+    const {mutate, isError, isLoading} = useMutation(createBowlingReservation, {onSuccess: () => {
         queryClient.invalidateQueries("reservations").then(r => console.log(r));
         }});
 
@@ -128,7 +130,7 @@ export const BowlingReservation = () =>{
                                 onChange={(e) => setNumberOfPeople(e.target.value)}
                             />
                         </div>
-                        <button onClick={reset} type="submit" className="btn btn-outline-primary">
+                        <button  type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
                         <Link className="btn btn-outline-danger mx-2" to="/">

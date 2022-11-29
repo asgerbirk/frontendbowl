@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom";
 import myLogo from "./bowllogo.jpg"
-import {NavbarBrand} from "react-bootstrap";
 
 export const NavbarComponent = () => {
 
@@ -22,6 +21,7 @@ export const NavbarComponent = () => {
                     <Nav.Link as={Link} to="/bowlingReservation">Bowling Reservation </Nav.Link>
                     <Nav.Link as={Link} to="/airhockeyreservation">Airhockey Reservation </Nav.Link>
                     <Nav.Link as={Link} to="/diningReservation">Dining Reservation </Nav.Link>
+                    <Nav.Link as={Link} to="/allBookings">Se alle reservationer </Nav.Link>
                     <Nav.Link as={Link} to="/login">Login </Nav.Link>
                 </Nav>
             </Container>
