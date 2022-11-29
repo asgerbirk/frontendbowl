@@ -53,17 +53,15 @@ export const AllBookings = () =>{
                         <th>Antal personer</th>
                         <th>Bord nr.</th>
                         <th>Antal baner</th>
-
-
-
                         <th></th>
                         <th>Delete</th>
 
                     </tr>
                     </thead>
                     <tbody>
+                    {/* eslint-disable-next-line array-callback-return */}
                     {data?.data.filter((val) =>{
-                        if (searchTerm == ""){
+                        if (searchTerm === ""){
                             return val
                         }else if (val.email.toLowerCase().includes(searchTerm.toLowerCase())){
                             return val
