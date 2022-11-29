@@ -2,8 +2,11 @@ import {useQuery} from "react-query";
 import {deleteBooking, fetchAllBookings} from "../Components/Queries";
 import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 export const AllBookings = () =>{
+
+    const[searchTerm, setSearchTerm] = useState("");
 
     const {data, isLoading, isError} = useQuery("bookings", fetchAllBookings);
 
@@ -22,6 +25,20 @@ export const AllBookings = () =>{
     console.log(data)
 
     return (
+        <>
+        <div className={"search"}>
+            <input
+                type="text"
+                placeholder="Søg..."
+                onChange={(event) =>{
+                    setSearchTerm(event.target.value)
+                }}
+            />
+
+
+
+        </div>
+
         <div className={"container" }>
             <div className='py-4' style={{backgroundColor: 'white'}}>
                 <Table striped bordered hover>
@@ -35,7 +52,8 @@ export const AllBookings = () =>{
                         <th>Dato</th>
                         <th>Antal personer</th>
                         <th>Bord nr.</th>
-                        <th>Antal baner.</th>
+                        <th>Antal baner</th>
+
 
 
                         <th></th>
@@ -44,8 +62,13 @@ export const AllBookings = () =>{
                     </tr>
                     </thead>
                     <tbody>
-                    {
-                        data?.data.map((bookings) => (
+                    {data?.data.filter((val) =>{
+                        if (searchTerm == ""){
+                            return val
+                        }else if (val.email.toLowerCase().includes(searchTerm.toLowerCase())){
+                            return val
+                        }
+                    }).map((bookings) => (
                             <tr key={bookings.id}>
                                 <td> {bookings.id} </td>
                                 <td>{bookings.name}</td>
@@ -72,6 +95,7 @@ export const AllBookings = () =>{
                 </Table>
             </div>
         </div>
+            </>
     )
 
 }
