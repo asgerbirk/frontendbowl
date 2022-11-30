@@ -13,6 +13,8 @@ export const BowlingReservation = () =>{
     const [reservationEnd, setReservationEnd] = useState("");
     const [numberOfPeople, setNumberOfPeople] = useState("");
     const [date, setDate] = useState("");
+    const [countOfLanes, setCountOfLanes] = useState("");
+    const [laneNum1, setLaneNum1] = useState("");
 
 
 
@@ -37,7 +39,7 @@ export const BowlingReservation = () =>{
 
         const handleSubmit = async (e) =>{
             e.preventDefault();
-            mutate({name, email, reservationStart, reservationEnd, numberOfPeople,date})
+            mutate({name, email, reservationStart, reservationEnd, numberOfPeople,date,countOfLanes, laneNum1})
             navigate("/")
         }
 
@@ -128,6 +130,32 @@ export const BowlingReservation = () =>{
                                 name="numberOfPersons"
                                 value={numberOfPeople}
                                 onChange={(e) => setNumberOfPeople(e.target.value)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="countOfLanes" className="form-label">
+                                Antal baner
+                            </label>
+                            <input
+                                type={"number"}
+                                className="form-control"
+                                placeholder="Antal baner"
+                                name="countOfLanes"
+                                value={countOfLanes}
+                                onChange={(e) => setCountOfLanes(e.target.value)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="laneNumber" className="form-label">
+                                Bane nummer
+                            </label>
+                            <input
+                                type={"number"}
+                                className="form-control"
+                                placeholder="laneNumber"
+                                name="laneNumber"
+                                value={laneNum1}
+                                onChange={(e) => setLaneNum1(e.target.value)}
                             />
                         </div>
                         <button  type="submit" className="btn btn-outline-primary">
