@@ -45,6 +45,7 @@ export const AllBookings = () =>{
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Type</th>
                         <th>Navn</th>
                         <th>Email</th>
                         <th>Reservation start</th>
@@ -69,6 +70,7 @@ export const AllBookings = () =>{
                     }).map((bookings) => (
                             <tr key={bookings.id}>
                                 <td> {bookings.id} </td>
+                                <td> {bookings.type}</td>
                                 <td>{bookings.name}</td>
                                 <td>{bookings.email}</td>
                                 <td>{bookings.reservationStart}</td>
