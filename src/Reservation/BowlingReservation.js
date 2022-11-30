@@ -3,6 +3,7 @@ import {useMutation, useQueryClient} from "react-query";
 import {createBowlingReservation} from "../Components/Queries";
 import {useState} from "react";
 
+
 export const BowlingReservation = () =>{
 
 
@@ -96,6 +97,8 @@ export const BowlingReservation = () =>{
                             </label>
                             <input
                                 type={"time"}
+                                min={"10:00"}
+                                max={"21:00"}
                                 className="form-control"
                                 placeholder="reservation start"
                                 name="reservationStart"
