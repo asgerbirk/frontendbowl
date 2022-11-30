@@ -52,12 +52,12 @@ export const BowlingReservation = () =>{
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label htmlFor="Name" className="form-label">
-                                Name
+                                Navn
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your name"
+                                placeholder="Indtast dit navn"
                                 name="name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
@@ -71,7 +71,7 @@ export const BowlingReservation = () =>{
                                 type={"text"}
                                 step="900"
                                 className="form-control"
-                                placeholder="Enter your email"
+                                placeholder="Indtast din email"
                                 name="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -79,7 +79,7 @@ export const BowlingReservation = () =>{
                         </div>
                         <div className="mb-3">
                             <label htmlFor="Date" className="form-label">
-                                Date
+                                Dato
                             </label>
                             <input
                                 type={"date"}
@@ -92,7 +92,7 @@ export const BowlingReservation = () =>{
                         </div>
                         <div className="mb-3">
                             <label htmlFor="reservationStart" className="form-label">
-                                Reservation start
+                                Booking start tidspunkt
                             </label>
                             <input
                                 type={"time"}
@@ -105,7 +105,7 @@ export const BowlingReservation = () =>{
                         </div>
                         <div className="mb-3">
                             <label htmlFor="reservationEnd" className="form-label">
-                                Reservation end
+                                Booking slut tidspunkt
                             </label>
                             <input
                                 type={"time"}
@@ -119,22 +119,22 @@ export const BowlingReservation = () =>{
                         </div>
                         <div className="mb-3">
                             <label htmlFor="NumberOfPerson" className="form-label">
-                                Number of persons
+                                Antal spillere
                             </label>
                             <input
                                 type={"number"}
                                 className="form-control"
-                                placeholder="number of persons"
+                                placeholder="Antal spillere"
                                 name="numberOfPersons"
                                 value={numberOfPeople}
                                 onChange={(e) => setNumberOfPeople(e.target.value)}
                             />
                         </div>
                         <button  type="submit" className="btn btn-outline-primary">
-                            Submit
+                            Bekræft booking
                         </button>
                         <Link className="btn btn-outline-danger mx-2" to="/">
-                            Cancel
+                            Aflys
                         </Link>
                     </form>
                 </div>
