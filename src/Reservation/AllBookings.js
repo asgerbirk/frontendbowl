@@ -26,7 +26,7 @@ export const AllBookings = () =>{
 
     return (
         <>
-        <div className={"container"}>
+        <div className={"search"}>
             <input
                 type="text"
                 placeholder="Søg..."
@@ -75,6 +75,7 @@ export const AllBookings = () =>{
                                 <td>{bookings.reservationEnd}</td>
                                 <td>{bookings.date}</td>
                                 <td>{bookings.numberOfPeople}</td>
+                                <td>{bookings.tableNum}</td>
                                 <td>{bookings.countOfLanes}</td>
                                 <td>{bookings.laneNumber}</td>
 
