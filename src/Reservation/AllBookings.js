@@ -6,10 +6,6 @@ export const AllBookings = () =>{
 
 
     return (
-
-
-            
-
         <div className={"container"}>
             <div className='py-2'>
                 <Button>Bowling Reservationer</Button>
@@ -17,8 +13,6 @@ export const AllBookings = () =>{
                 <Button>Restauratant  Reservationer</Button>
             </div>
         </div>
-
-
     )
 
 }

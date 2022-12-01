@@ -75,7 +75,6 @@ export const SeeBowlingReservation = () =>{
                                 <td>{bookings.reservationEnd}</td>
                                 <td>{bookings.date}</td>
                                 <td>{bookings.numberOfPeople}</td>
-                                <td>{bookings.tableNum}</td>
                                 <td>{bookings.countOfLanes}</td>
                                 <td>{bookings.laneNumber}</td>
 
