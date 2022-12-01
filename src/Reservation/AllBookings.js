@@ -26,7 +26,7 @@ export const AllBookings = () =>{
 
     return (
         <>
-        <div className={"search"}>
+        <div className={"container"}>
             <input
                 type="text"
                 placeholder="Søg..."
@@ -34,9 +34,6 @@ export const AllBookings = () =>{
                     setSearchTerm(event.target.value)
                 }}
             />
-
-
-
         </div>
 
         <div className={"container" }>
@@ -45,16 +42,18 @@ export const AllBookings = () =>{
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Type</th>
                         <th>Navn</th>
                         <th>Email</th>
                         <th>Reservation start</th>
                         <th>Reservation end</th>
                         <th>Dato</th>
                         <th>Antal personer</th>
-                        <th>Bord nr.</th>
                         <th>Antal baner</th>
-                        <th></th>
-                        <th>Delete</th>
+                        <th>Bane nummer</th>
+
+                        <th>Rediger</th>
+                        <th>Slet</th>
 
                     </tr>
                     </thead>
@@ -69,21 +68,23 @@ export const AllBookings = () =>{
                     }).map((bookings) => (
                             <tr key={bookings.id}>
                                 <td> {bookings.id} </td>
+                                <td> {bookings.reservationType} </td>
                                 <td>{bookings.name}</td>
                                 <td>{bookings.email}</td>
                                 <td>{bookings.reservationStart}</td>
                                 <td>{bookings.reservationEnd}</td>
                                 <td>{bookings.date}</td>
                                 <td>{bookings.numberOfPeople}</td>
-                                <td>{bookings.tableNum}</td>
                                 <td>{bookings.countOfLanes}</td>
+                                <td>{bookings.laneNumber}</td>
+
                                 <td>
                                     <Link
                                         className="btn btn-primary mx-2"
-                                        to={`/edit/${bookings.id}`}>Edit</Link>
+                                        to={`/editBowlingReservation/${bookings.id}`}>Rediger</Link>
                                 </td>
                                 <td>
-                                    <Button onClick={() => deleteBookingButton(bookings.id)}>Delete</Button>
+                                    <Button onClick={() => deleteBookingButton(bookings.id)}>Slet</Button>
                                 </td>
                             </tr>
 

@@ -1,49 +1,56 @@
-import {Link, useNavigate} from "react-router-dom";
-import {useMutation, useQueryClient} from "react-query";
-import {createBowlingReservation} from "../Components/Queries";
-import {useState} from "react";
-
-export const BowlingReservation = () =>{
+import {useEffect, useState} from "react";
+import {Link, useNavigate, useParams} from "react-router-dom";
+import {getReservationById, updateReservation} from "../Components/Queries";
 
 
-    //Attributes ( react hooks )
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [reservationStart, setReservationStart] = useState("");
-    const [reservationEnd, setReservationEnd] = useState("");
-    const [numberOfPeople, setNumberOfPeople] = useState("");
-    const [date, setDate] = useState("");
-    const [countOfLanes, setCountOfLanes] = useState("");
-    const [laneNumber, setLaneNumber] = useState("");
+export const EditBowlingReservation = ()  => {
+    const [reservation, setReservation] = useState({
+        name:"",
+        email:"",
+        date: "",
+        reservationStart: "",
+        reservationEnd: "",
+        numberOfPeople:"",
+        laneNumber: "",
+        countOfLanes:""
+    })
 
-    const queryClient = useQueryClient();
+
     let navigate = useNavigate();
 
-    const {mutate, isError, isLoading} = useMutation(createBowlingReservation, {onSuccess: () => {
-        queryClient.invalidateQueries("reservations").then(r => console.log(r));
-        }});
+    const {id} = useParams();
 
-      if (isError){
-        return <p>Error</p>
-     }
-
-        if (isLoading){
-            return  <p>is loading</p>
-        }
+    const {name, email,date, reservationStart, reservationEnd, numberOfPeople, laneNumber,countOfLanes} = reservation;
 
 
-        const handleSubmit = async (e) =>{
-            e.preventDefault();
-            mutate({name, email, reservationStart, reservationEnd, numberOfPeople,date,countOfLanes, laneNumber})
-            navigate("/")
-        }
+
+    const onValueChange = (e) => {
+        setReservation({...reservation, [e.target.name]: e.target.value})
+    }
+
+
+    useEffect(() => {
+        loadReservation().then(r => console.log(r));
+    }, []);
+
+
+    const onSubmit = async (e) => {
+    e.preventDefault();
+    await updateReservation(reservation,id)
+    navigate("/allBookings")
+}
+
+    const loadReservation = async () => {
+  const result = await getReservationById(id)
+        setReservation(result.data)
+    };
 
     return (
         <div className="container" >
             <div className="row">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow" style={{backgroundColor: 'white'}}>
-                    <h2 className="text-center m-4">Bowling reservation</h2>
-                    <form onSubmit={handleSubmit}>
+                    <h2 className="text-center m-4">Rediger reservation</h2>
+                    <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
                             <label htmlFor="Name" className="form-label">
                                 Navn
@@ -54,8 +61,8 @@ export const BowlingReservation = () =>{
                                 placeholder="Indtast dit navn"
                                 name="name"
                                 value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
+                                onChange={(e) => onValueChange(e)}/>
+
                         </div>
                         <div className="mb-3">
                             <label htmlFor="Email" className="form-label">
@@ -68,48 +75,44 @@ export const BowlingReservation = () =>{
                                 placeholder="Indtast din email"
                                 name="email"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+                                onChange={(e) => onValueChange(e)}/>
+
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Date" className="form-label">
+                            <label htmlFor="Name" className="form-label">
                                 Dato
                             </label>
                             <input
                                 type={"date"}
                                 className="form-control"
-                                placeholder="date"
+                                placeholder="Indtast dato"
                                 name="date"
                                 value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                            />
+                                onChange={(e) => onValueChange(e)}/>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="reservationStart" className="form-label">
-                                Booking start tidspunkt
+                            <label htmlFor="Name" className="form-label">
+                                Start
                             </label>
                             <input
                                 type={"time"}
                                 className="form-control"
-                                placeholder="reservation start"
+                                placeholder="Indtast start"
                                 name="reservationStart"
                                 value={reservationStart}
-                                onChange={(e) => setReservationStart(e.target.value)}
-                            />
+                                onChange={(e) => onValueChange(e)}/>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="reservationEnd" className="form-label">
-                                Booking slut tidspunkt
+                            <label htmlFor="Name" className="form-label">
+                                Slut
                             </label>
                             <input
                                 type={"time"}
                                 className="form-control"
-                                placeholder="Reservation end"
+                                placeholder="Indtast slut"
                                 name="reservationEnd"
                                 value={reservationEnd}
-                                onChange={(e) => setReservationEnd(e.target.value)}
-                            />
-
+                                onChange={(e) => onValueChange(e)}/>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="NumberOfPerson" className="form-label">
@@ -121,8 +124,7 @@ export const BowlingReservation = () =>{
                                 placeholder="Antal spillere"
                                 name="numberOfPersons"
                                 value={numberOfPeople}
-                                onChange={(e) => setNumberOfPeople(e.target.value)}
-                            />
+                                onChange={(e) => onValueChange(e)}/>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="countOfLanes" className="form-label">
@@ -134,8 +136,7 @@ export const BowlingReservation = () =>{
                                 placeholder="Antal baner"
                                 name="countOfLanes"
                                 value={countOfLanes}
-                                onChange={(e) => setCountOfLanes(e.target.value)}
-                            />
+                                onChange={(e) => onValueChange(e)}/>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="laneNumber" className="form-label">
@@ -147,18 +148,19 @@ export const BowlingReservation = () =>{
                                 placeholder="laneNumber"
                                 name="laneNumber"
                                 value={laneNumber}
-                                onChange={(e) => setLaneNumber(e.target.value)}
-                            />
+                                onChange={(e) => onValueChange(e)}/>
                         </div>
-                        <button  type="submit" className="btn btn-outline-primary">
-                            Bekræft booking
+                        <button type="submit" className="btn btn-outline-primary">
+                            Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/">
-                            Aflys
+                        <Link className="btn btn-outline-danger mx-2" to="/allBookings">
+                            Cancel
                         </Link>
                     </form>
                 </div>
             </div>
         </div>
     );
+
+
 }

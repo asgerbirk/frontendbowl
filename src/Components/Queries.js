@@ -1,17 +1,25 @@
 import axios from "axios";
 
-export const fetchAllBowlingReservations = async () =>{
-    return await axios.post("")
-}
 
 export const createBowlingReservation = async (bowlingReservation) =>{
-    return await axios.post("http://localhost:8080/api/v1/reservations/bowling", bowlingReservation)
+    return await axios.post("http://localhost:8080/api/v1/bowlingReservation", bowlingReservation)
 }
 
 export const fetchAllBookings = async () =>{
-    return await axios.get("http://localhost:8080/api/v1/reservations")
+    return await axios.get("http://localhost:8080/api/v1/bowlingReservation")
 }
 
 export const deleteBooking = async (id) =>{
-    return await axios.delete(`http://localhost:8080/api/v1/reservations/${id}`)
+    return await axios.delete(`http://localhost:8080/api/v1/bowlingReservation/${id}`)
+}
+export const getReservationById = async (id) =>{
+    return await axios.get(`http://localhost:8080/api/v1/bowlingReservation/${id}`)
+}
+
+export const updateReservation = async (reservation, id) => {
+    return await axios.put(`http://localhost:8080/api/v1/bowlingReservation/${id}`, reservation).then((data) => {
+        console.log(data);
+    }).catch((err) => {
+        console.log(err)
+    })
 }
