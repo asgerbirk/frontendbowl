@@ -9,6 +9,7 @@ import {EditBowlingReservation} from "./Reservation/EditBowlingReservation";
 import {SeeBowlingReservation} from "./Reservation/SeeBowlingReservation";
 import {CreateAirhockeyReservation} from "./Reservation/CreateAirhockeyReservation";
 import {CreateDiningReservation} from "./Reservation/CreateDiningReservation";
+import {SeeAirhockeyReservation} from "./Reservation/SeeAirhockeyReservation";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
                 <Route exact path ="/diningReservation" element={<CreateDiningReservation/>}/>
                 <Route exact path ="/allBookings" element={<AllBookings/>}/>
                 <Route exact path ="/seeBowlingReservation" element={<SeeBowlingReservation/>}/>
+                <Route exact path ="/seeAirhockeyReservation" element={<SeeAirhockeyReservation/>}/>
                 <Route exact path ="/editBowlingReservation/:id" element={<EditBowlingReservation/>}/>
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>
             </Routes>

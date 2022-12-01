@@ -17,6 +17,10 @@ export const fetchAllBookings = async () =>{
     return await axios.get("http://localhost:8080/api/v1/bowlingReservation")
 }
 
+export const fetchAllAirhockeyBookings = async () =>{
+    return await axios.get("http://localhost:8080/api/v1/airhockeyReservation")
+}
+
 export const deleteBooking = async (id) =>{
     return await axios.delete(`http://localhost:8080/api/v1/bowlingReservation/${id}`)
 }
