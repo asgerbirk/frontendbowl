@@ -147,7 +147,7 @@ export const BowlingReservation = () =>{
                             <input
                                 type={"number"}
                                 className="form-control"
-                                placeholder="laneNumber"
+                                placeholder="Bane nummer"
                                 name="laneNumber"
                                 value={laneNumber}
                                 onChange={(e) => setLaneNumber(e.target.value)}

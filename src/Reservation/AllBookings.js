@@ -29,11 +29,21 @@ export const AllBookings = () =>{
         <div className={"container"}>
             <input
                 type="text"
-                placeholder="Søg..."
+                placeholder="Søg efter email.."
                 onChange={(event) =>{
                     setSearchTerm(event.target.value)
                 }}
             />
+        </div>
+
+            
+
+        <div className={"container"}>
+            <div className='py-2'>
+                <Button>Bowling Reservationer</Button>
+                <Button>Airhockey Reservationer</Button>
+                <Button>Restauratant  Reservationer</Button>
+            </div>
         </div>
 
         <div className={"container" }>
