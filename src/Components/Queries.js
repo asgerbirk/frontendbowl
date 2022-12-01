@@ -5,6 +5,14 @@ export const createBowlingReservation = async (bowlingReservation) =>{
     return await axios.post("http://localhost:8080/api/v1/bowlingReservation", bowlingReservation)
 }
 
+export const createAirhockeyReservation = async (airhockeyReservation) => {
+    return await axios.post("http://localhost:8080/api/v1/airhockeyReservation", airhockeyReservation)
+}
+
+export const createDiningReservation = async (diningReservation) => {
+    return await axios.post("http://localhost:8080/api/v1/diningReservation", diningReservation)
+}
+
 export const fetchAllBookings = async () =>{
     return await axios.get("http://localhost:8080/api/v1/bowlingReservation")
 }
