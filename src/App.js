@@ -7,6 +7,7 @@ import {Home} from "./Components/Home";
 import {AllBookings} from "./Reservation/AllBookings";
 import {EditBowlingReservation} from "./Reservation/EditBowlingReservation";
 import {SeeBowlingReservation} from "./Reservation/SeeBowlingReservation";
+import {Equipment} from "./Components/Equipment";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                 <Route exact path ="/bowlingReservation" element={<CreateBowlingReservation/>}/>
                 <Route exact path ="/allBookings" element={<AllBookings/>}/>
                 <Route exact path ="/seeBowlingReservation" element={<SeeBowlingReservation/>}/>
+                <Route exact path ="/equipment" element={<Equipment/>}/>
                 <Route exact path ="/editBowlingReservation/:id" element={<EditBowlingReservation/>}/>
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>
             </Routes>
