@@ -4,7 +4,7 @@ import {createBowlingReservation} from "../Components/Queries";
 import {useState} from "react";
 
 
-export const BowlingReservation = () =>{
+export const CreateBowlingReservation = () =>{
 
 
     //Attributes ( react hooks )
