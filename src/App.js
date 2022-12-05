@@ -11,6 +11,7 @@ import {Equipment} from "./Components/Equipment";
 import {CreateAirhockeyReservation} from "./Reservation/CreateAirhockeyReservation";
 import {CreateDiningReservation} from "./Reservation/CreateDiningReservation";
 import {SeeAirhockeyReservation} from "./Reservation/SeeAirhockeyReservation";
+import {Beverages} from "./Components/Beverages";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
                 <Route exact path ="/allBookings" element={<AllBookings/>}/>
                 <Route exact path ="/seeBowlingReservation" element={<SeeBowlingReservation/>}/>
                 <Route exact path ="/equipment" element={<Equipment/>}/>
+                <Route exact path ="/beverages" element={<Beverages/>}/>
                 <Route exact path ="/seeAirhockeyReservation" element={<SeeAirhockeyReservation/>}/>
                 <Route exact path ="/editBowlingReservation/:id" element={<EditBowlingReservation/>}/>
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>

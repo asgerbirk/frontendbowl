@@ -23,6 +23,8 @@ export const NavbarComponent = () => {
                     <Nav.Link as={Link} to="/diningReservation">Dining Reservation </Nav.Link>
                     <Nav.Link as={Link} to="/allBookings">Se alle reservationer </Nav.Link>
                     <Nav.Link as={Link} to="/equipment">Håndter udstyr </Nav.Link>
+                    <Nav.Link as={Link} to="/beverages">Se menukort </Nav.Link>
+                    <Nav.Link as={Link} to="/beverages">Ændr menukort </Nav.Link>
                     <Nav.Link as={Link} to="/login">Login </Nav.Link>
                 </Nav>
             </Container>
