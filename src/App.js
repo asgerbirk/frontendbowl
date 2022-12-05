@@ -7,6 +7,7 @@ import {Home} from "./Components/Home";
 import {AllBookings} from "./Reservation/AllBookings";
 import {EditBowlingReservation} from "./Reservation/EditBowlingReservation";
 import {SeeBowlingReservation} from "./Reservation/SeeBowlingReservation";
+import {SeeDiningReservation} from "./Reservation/SeeDiningReservation";
 import {Equipment} from "./Components/Equipment";
 import {CreateAirhockeyReservation} from "./Reservation/CreateAirhockeyReservation";
 import {CreateDiningReservation} from "./Reservation/CreateDiningReservation";
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path ="/diningReservation" element={<CreateDiningReservation/>}/>
                 <Route exact path ="/allBookings" element={<AllBookings/>}/>
                 <Route exact path ="/seeBowlingReservation" element={<SeeBowlingReservation/>}/>
+                <Route exact path ="/seeDiningReservation" element={<SeeDiningReservation/>}/>
                 <Route exact path ="/equipment" element={<Equipment/>}/>
                 <Route exact path ="/seeAirhockeyReservation" element={<SeeAirhockeyReservation/>}/>
                 <Route exact path ="/editBowlingReservation/:id" element={<EditBowlingReservation/>}/>

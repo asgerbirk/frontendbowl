@@ -1,5 +1,5 @@
 import {useQuery} from "react-query";
-import {deleteBooking, fetchAllBookings} from "../Components/Queries";
+import {deleteBooking, fetchAllBookings, fetchAllBowlingBookings} from "../Components/Queries";
 import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {useState} from "react";
@@ -8,7 +8,7 @@ export const SeeBowlingReservation = () =>{
 
     const[searchTerm, setSearchTerm] = useState("");
 
-    const {data, isLoading, isError} = useQuery("bookings", fetchAllBookings);
+    const {data, isLoading, isError} = useQuery("bookings", fetchAllBowlingBookings);
 
     if (isLoading){
         return <p>is loading</p>
