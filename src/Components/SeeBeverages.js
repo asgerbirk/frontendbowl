@@ -4,7 +4,7 @@ import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {useState} from "react";
 
-export const Beverages = () => {
+export const SeeBeverages = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const {data, isLoading, isError} = useQuery("beverages", fetchBeverages);
@@ -17,6 +17,9 @@ export const Beverages = () => {
         return <p>Error</p>
     }
 
+    const deleteBeveragesButton = (id) =>{
+        deleteBeverages(id).then(() => window.location.reload());
+    }
 
     console.log(data)
 
@@ -58,6 +61,15 @@ export const Beverages = () => {
                                 <td>{beverages.name} </td>
                                 <td>{beverages.price} </td>
                                 <td>{beverages.description}</td>
+
+                                <td>
+                                    <Link
+                                        className="btn btn-primary mx-2"
+                                        to={`/editbeverages/${beverages.id}`}>Rediger</Link>
+                                </td>
+                                <td>
+                                    <Button onClick={() => deleteBeveragesButton(beverages.id)}>Slet</Button>
+                                </td>
 
                             </tr>
 

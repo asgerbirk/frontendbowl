@@ -1,4 +1,5 @@
 import axios from "axios";
+import data from "bootstrap/js/src/dom/data";
 
 
 export const createBowlingReservation = async (bowlingReservation) =>{
@@ -32,8 +33,22 @@ export const getReservationById = async (id) =>{
     return await axios.get(`http://localhost:8080/api/v1/bowlingReservation/${id}`)
 }
 //HUSK AT OPDATERE TIL AT ÆNDRE HVER SPECIFIK RESERVATION
+
+export const getBeverageById = async (id) =>{
+    return await axios.get(`http://localhost:8080/api/v1/beverages/${id}`)
+}
+
+
 export const updateReservation = async (reservation, id) => {
     return await axios.put(`http://localhost:8080/api/v1/bowlingReservation/${id}`, reservation).then((data) => {
+        console.log(data);
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+export const updateBeverage = async (beverage, id) => {
+    return await axios.put(`http://localhost:8080/api/v1/beverages/${id}`, beverage).then((data) => {
         console.log(data);
     }).catch((err) => {
         console.log(err)
@@ -48,8 +63,9 @@ export const getEquipmentById = async (id) =>{
     return await axios.get(`http://localhost:8080/api/v1/equipment/${id}`)
 }
 
-export const updateEquipment = async (equipment, id) =>{
-    return await axios.put(`http://localhost:8080/api/v1/equipment/${id}`,equipment)
+export const updateEquipment = async (equipment, id) => {
+    return await axios.put(`http://localhost:8080/api/v1/equipment/${id}`, equipment)
+}
 export const addOneEquipment = async (id) =>{
     return await axios.put(`http://localhost:8080/api/v1/equipment/${id}/addOne`)
 }
