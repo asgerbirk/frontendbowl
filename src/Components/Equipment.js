@@ -1,8 +1,8 @@
 import {useQuery} from "react-query";
-import {deleteEquipment, fetchEquipment} from "./Queries";
+import {deleteEquipment, fetchEquipment, getEquipmentById, updateEquipment} from "./Queries";
 import {Button, Table} from "react-bootstrap";
-import {Link} from "react-router-dom";
-import {useState} from "react";
+import {Link, useNavigate, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 export const Equipment = () =>{
 
@@ -62,9 +62,11 @@ export const Equipment = () =>{
                             <td>{equipment.size}</td>
                             <td>{equipment.color}</td>
                             <td>
+                                <Button onClick= {() => updateEquipment(equipment.id)}>Tilføj 1</Button>
+                                <Button onClick={() => updateEquipment(equipment.id)}>Slet 1</Button>
                                 <Link
                                     className="btn btn-primary mx-2"
-                                    to={`/editBowlingReservation/${equipment.id}`}>Rediger</Link>
+                                    to={`/equipment/${equipment.id}`}>Slet 1</Link>
                             </td>
                             <td>
                                 <Button onClick={() => deleteEquipment(equipment.id)}>Slet</Button>

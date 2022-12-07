@@ -31,7 +31,7 @@ export const deleteBooking = async (id) =>{
 export const getReservationById = async (id) =>{
     return await axios.get(`http://localhost:8080/api/v1/bowlingReservation/${id}`)
 }
-
+//HUSK AT OPDATERE TIL AT ÆNDRE HVER SPECIFIK RESERVATION
 export const updateReservation = async (reservation, id) => {
     return await axios.put(`http://localhost:8080/api/v1/bowlingReservation/${id}`, reservation).then((data) => {
         console.log(data);
@@ -42,6 +42,14 @@ export const updateReservation = async (reservation, id) => {
 
 export const fetchEquipment = async () =>{
     return await axios.get("http://localhost:8080/api/v1/equipment")
+}
+
+export const getEquipmentById = async (id) =>{
+    return await axios.get(`http://localhost:8080/api/v1/equipment/${id}`)
+}
+
+export const updateEquipment = async (id) =>{
+    return await axios.put(`http://localhost:8080/api/v1/equipment/${id}`)
 }
 
 export const deleteEquipment = async (id) =>{
