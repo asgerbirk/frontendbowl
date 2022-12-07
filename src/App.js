@@ -11,6 +11,11 @@ import {Equipment} from "./Components/Equipment";
 import {CreateAirhockeyReservation} from "./Reservation/CreateAirhockeyReservation";
 import {CreateDiningReservation} from "./Reservation/CreateDiningReservation";
 import {SeeAirhockeyReservation} from "./Reservation/SeeAirhockeyReservation";
+import {Calender} from "./Components/Calender";
+
+
+
+
 
 function App() {
 
@@ -28,6 +33,7 @@ function App() {
                 <Route exact path ="/equipment" element={<Equipment/>}/>
                 <Route exact path ="/seeAirhockeyReservation" element={<SeeAirhockeyReservation/>}/>
                 <Route exact path ="/editBowlingReservation/:id" element={<EditBowlingReservation/>}/>
+                <Route exact path ="/calender" element={<Calender/>}/>
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>
             </Routes>
         </Router>
