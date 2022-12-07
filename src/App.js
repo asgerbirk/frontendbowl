@@ -34,6 +34,7 @@ function App() {
                 <Route exact path ="/seeBowlingReservation" element={<SeeBowlingReservation/>}/>
                 <Route exact path ="/equipment" element={<Equipment/>}/>
                 <Route exact path ="/beverages" element={<Beverages/>}/>
+                <Route exact path ="/calender" element={<Calender/>}/>
                 <Route exact path ="/seeAirhockeyReservation" element={<SeeAirhockeyReservation/>}/>
                 <Route exact path ="/editBowlingReservation/:id" element={<EditBowlingReservation/>}/>
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>
