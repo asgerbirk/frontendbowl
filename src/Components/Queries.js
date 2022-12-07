@@ -13,12 +13,16 @@ export const createDiningReservation = async (diningReservation) => {
     return await axios.post("http://localhost:8080/api/v1/diningReservation", diningReservation)
 }
 
-export const fetchAllBookings = async () =>{
+export const fetchAllBowlingBookings = async () =>{
     return await axios.get("http://localhost:8080/api/v1/bowlingReservation")
 }
 
 export const fetchAllAirhockeyBookings = async () =>{
     return await axios.get("http://localhost:8080/api/v1/airhockeyReservation")
+}
+
+export const fetchAllDiningBookings = async () =>{
+    return await axios.get("http://localhost:8080/api/v1/diningReservation")
 }
 
 export const deleteBooking = async (id) =>{
@@ -50,4 +54,12 @@ export const fetchEmployee = async () =>{
 
 export const createEmployee = async (employee) =>{
     return await axios.post("http://localhost:8080/api/v1/employees", employee)
+}
+
+export const fetchBeverages = async () =>{
+    return await axios.get("http://localhost:8080/api/v1/beverages")
+}
+
+export const deleteBeverages = async (id) =>{
+    return await axios.delete(`http://localhost:8080/api/v1/beverages/${id}`)
 }
