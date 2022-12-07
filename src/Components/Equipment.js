@@ -1,12 +1,15 @@
 import {useQuery} from "react-query";
 import {deleteEquipment, fetchEquipment, getEquipmentById, updateEquipment} from "./Queries";
 import {Button, Table} from "react-bootstrap";
-import {Link, useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 
 export const Equipment = () =>{
 
     const [searchTerm, setSearchTerm] = useState("");
+    const[number, setNumber] = useState(0)
+
+
+
 
     const {data, isLoading, isError} = useQuery("equipment", fetchEquipment);
 
@@ -19,8 +22,10 @@ export const Equipment = () =>{
     }
     console.log(data)
 
-    return(
 
+
+
+    return(
         <>
         <div className={"container"}>
             <input
@@ -42,8 +47,6 @@ export const Equipment = () =>{
                         <th>Antal</th>
                         <th>Størelse</th>
                         <th>Farve</th>
-                        <th>Rediger</th>
-                        <th>Slet</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -58,15 +61,15 @@ export const Equipment = () =>{
                         <tr key={equipment.id}>
                             <td>{equipment.id} </td>
                             <td>{equipment.equipmentType} </td>
-                            <td>{equipment.number} </td>
+
+                            <td>{equipment.number}
+                                <Button onClick= {() => setNumber(equipment.number+1)}>+</Button>
+                                <Button onClick={() => setNumber(equipment.number-1)}>-</Button>< /td>
                             <td>{equipment.size}</td>
                             <td>{equipment.color}</td>
                             <td>
-                                <Button onClick= {() => updateEquipment(equipment.id)}>Tilføj 1</Button>
-                                <Button onClick={() => updateEquipment(equipment.id)}>Slet 1</Button>
-                                <Link
-                                    className="btn btn-primary mx-2"
-                                    to={`/equipment/${equipment.id}`}>Slet 1</Link>
+
+
                             </td>
                             <td>
                                 <Button onClick={() => deleteEquipment(equipment.id)}>Slet</Button>
