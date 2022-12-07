@@ -50,6 +50,12 @@ export const getEquipmentById = async (id) =>{
 
 export const updateEquipment = async (equipment, id) =>{
     return await axios.put(`http://localhost:8080/api/v1/equipment/${id}`,equipment)
+export const addOneEquipment = async (id) =>{
+    return await axios.put(`http://localhost:8080/api/v1/equipment/${id}/addOne`)
+}
+
+export const deleteOneEquipment = async (id) =>{
+    return await axios.put(`http://localhost:8080/api/v1/equipment/${id}/deleteOne`)
 }
 
 export const deleteEquipment = async (id) =>{

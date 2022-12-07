@@ -1,5 +1,12 @@
 import {useQuery} from "react-query";
-import {deleteEquipment, fetchEquipment, getEquipmentById, updateEquipment} from "./Queries";
+import {
+    addOneEquipment,
+    deleteEquipment,
+    deleteOneEquipment,
+    fetchEquipment,
+    getEquipmentById,
+    updateEquipment
+} from "./Queries";
 import {Button, Table} from "react-bootstrap";
 import {useEffect, useState} from "react";
 
@@ -26,6 +33,7 @@ export const Equipment = () =>{
 
 
     return(
+
         <>
         <div className={"container"}>
             <input
@@ -47,6 +55,8 @@ export const Equipment = () =>{
                         <th>Antal</th>
                         <th>Størelse</th>
                         <th>Farve</th>
+                        <th>Rediger</th>
+                        <th>Slet</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -70,6 +80,9 @@ export const Equipment = () =>{
                             <td>
 
 
+                                <Link
+                                    className="btn btn-primary mx-2"
+                                    to={`/equipment/${equipment.id}`}>Slet 1</Link>
                             </td>
                             <td>
                                 <Button onClick={() => deleteEquipment(equipment.id)}>Slet</Button>
