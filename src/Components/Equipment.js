@@ -9,6 +9,7 @@ import {
 } from "./Queries";
 import {Button, Table} from "react-bootstrap";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 export const Equipment = () =>{
 
@@ -71,24 +72,17 @@ export const Equipment = () =>{
                         <tr key={equipment.id}>
                             <td>{equipment.id} </td>
                             <td>{equipment.equipmentType} </td>
-
-                            <td>{equipment.number}
-                                <Button onClick= {() => setNumber(equipment.number+1)}>+</Button>
-                                <Button onClick={() => setNumber(equipment.number-1)}>-</Button>< /td>
+                            <td>{equipment.number}</td>
                             <td>{equipment.size}</td>
                             <td>{equipment.color}</td>
-                            <td>
-
-
-                                <Link
-                                    className="btn btn-primary mx-2"
-                                    to={`/equipment/${equipment.id}`}>Slet 1</Link>
+                            <td><Link
+                                className="btn btn-primary mx-2"
+                                to={`/editequipment/${equipment.id}`}>Rediger</Link>
                             </td>
                             <td>
                                 <Button onClick={() => deleteEquipment(equipment.id)}>Slet</Button>
                             </td>
                         </tr>
-
                     ))
                     }
                     </tbody>

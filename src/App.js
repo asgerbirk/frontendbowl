@@ -21,6 +21,10 @@ import {Calender} from "./Components/Calender";
 import {Beverages} from "./Components/Beverages";
 import {EditBeverages} from "./Components/EditBeverages";
 import {SeeBeverages} from "./Components/SeeBeverages";
+import {CreateEquipment} from "./Components/CreateEquipment";
+import {EquipmentHandler} from "./Components/EquipmentHandler";
+import {EditEquipment} from "./Components/EditEquipment";
+
 
 function App() {
 
@@ -36,6 +40,9 @@ function App() {
                 <Route exact path ="/allBookings" element={<AllBookings/>}/>
                 <Route exact path ="/seeBowlingReservation" element={<SeeBowlingReservation/>}/>
                 <Route exact path ="/equipment" element={<Equipment/>}/>
+                <Route exact path ="/equipmenthandler" element={<EquipmentHandler/>}/>
+                <Route exact path ="/editequipment/:id" element={<EditEquipment/>}/>
+                <Route exact path ="/createEquipment" element={<CreateEquipment/>}/>
                 <Route exact path ="/beverages" element={<Beverages/>}/>
                 <Route exact path ="/calender" element={<Calender/>}/>
                 <Route exact path ="/SeeBeverages" element={<SeeBeverages/>}/>

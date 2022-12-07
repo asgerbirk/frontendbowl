@@ -1,56 +1,46 @@
-import {Link, useNavigate, useParams} from "react-router-dom";
-import {getEquipmentById, updateBeverage, updateEquipment} from "../Components/Queries";
-import {useEffect, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
+import {useMutation, useQueryClient} from "react-query";
+import {createBowlingReservation} from "../Components/Queries";
+import {useState} from "react";
 
 
-export const EditEquipment = () =>{
+export const CreateEquipment = () =>{
 
 
     //Attributes ( react hooks )
+    const [type, setType] = useState("");
+    const [number, setNumber] = useState("");
+    const [size, setSize] = useState("");
+    const [color, setColor] = useState("");
 
-
-    const [equipment, setEquipment] = useState({
-        type: "",
-        number:"",
-        size:"",
-        color:""
-    })
-
-    //const queryClient = useQueryClient();
+    const queryClient = useQueryClient();
     let navigate = useNavigate();
 
-    const {id} = useParams();
+    const {mutate, isError, isLoading} = useMutation(createBowlingReservation, {onSuccess: () => {
+            queryClient.invalidateQueries("equipment").then(r => console.log(r));
+        }});
 
-    const {type, number, size, color} = equipment;
-
-    const onValueChange = (e) => {
-        setEquipment({...equipment, [e.target.name]: e.target.value})
+    if (isError){
+        return <p>Error</p>
     }
 
-    useEffect(() => {
-        loadEquipment().then(r => console.log(r));
-    }, []);
+    if (isLoading){
+        return  <p>is loading</p>
+    }
 
-    const onSubmit = async (e) => {
+
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        await updateEquipment(equipment,id)
-        navigate("/equipmenthandler")
+        mutate({type, number, size, color})
+        navigate("/")
     }
-
-    const loadEquipment = async () => {
-        const result = await getEquipmentById(id)
-        setEquipment(result.data)
-    };
-
-
-
 
     return (
         <div className="container" >
             <div className="row">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow" style={{backgroundColor: 'white'}}>
-                    <h2 className="text-center m-4">Opdatering af udstyr</h2>
-                    <form onSubmit={(e) => onSubmit(e)}>
+                    <h2 className="text-center m-4">Oprettelse af udstyr</h2>
+                    <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label htmlFor="Name" className="form-label">
                                 Type
@@ -61,20 +51,21 @@ export const EditEquipment = () =>{
                                 placeholder="Indtast udstyrs-typen"
                                 name="type"
                                 value={type}
-                                onChange={(e) => onValueChange(e)}
+                                onChange={(e) => setType(e.target.value)}
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="number" className="form-label">
+                            <label htmlFor="Email" className="form-label">
                                 Antal
                             </label>
                             <input
-                                type={"number"}
+                                type={"text"}
+                                step="900"
                                 className="form-control"
                                 placeholder="Indtast antal"
                                 name="number"
                                 value={number}
-                                onChange={(e) => onValueChange(e)}
+                                onChange={(e) => setNumber(e.target.value)}
                             />
                         </div>
                         <div className="mb-3">
@@ -87,7 +78,7 @@ export const EditEquipment = () =>{
                                 placeholder="Indtast størrelse / KG"
                                 name="size"
                                 value={size}
-                                onChange={(e) => onValueChange(e)}
+                                onChange={(e) => setSize(e.target.value)}
                             />
                         </div>
                         <div className="mb-3">
@@ -100,7 +91,7 @@ export const EditEquipment = () =>{
                                 placeholder="Indtast farve"
                                 name="color"
                                 value={color}
-                                onChange={(e) => onValueChange(e)}
+                                onChange={(e) => setColor(e.target.value)}
                             />
                         </div>
                         <button  type="submit" className="btn btn-outline-primary">
