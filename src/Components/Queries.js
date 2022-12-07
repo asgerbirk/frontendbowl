@@ -56,6 +56,14 @@ export const deleteEquipment = async (id) =>{
     return await axios.delete(`http://localhost:8080/api/v1/equipment/${id}`)
 }
 
+export const fetchEmployee = async () =>{
+    return await axios.get("http://localhost:8080/api/v1/employees")
+}
+
+export const createEmployee = async (employee) =>{
+    return await axios.post("http://localhost:8080/api/v1/employees", employee)
+}
+
 export const fetchBeverages = async () =>{
     return await axios.get("http://localhost:8080/api/v1/beverages")
 }
