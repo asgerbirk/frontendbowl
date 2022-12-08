@@ -6,22 +6,31 @@ import {useEffect, useState} from "react";
 export const EditEquipment = () =>{
 
 
-    //Attributes ( react hooks )
+
 
 
     const [equipment, setEquipment] = useState({
-        type: "",
-        number:"",
-        size:"",
-        color:""
+        number:"0",
     })
 
-    //const queryClient = useQueryClient();
+    const[counter, setCounter] = useState(0)
+
+    //increase counter
+    const increase = () => {
+        setCounter(count => count + 1);
+    };
+
+    //decrease counter
+    const decrease = () => {
+        setCounter(count => count - 1);
+    };
+
+
     let navigate = useNavigate();
 
     const {id} = useParams();
 
-    const {type, number, size, color} = equipment;
+    const {number} = equipment;
 
     const onValueChange = (e) => {
         setEquipment({...equipment, [e.target.name]: e.target.value})
@@ -34,7 +43,7 @@ export const EditEquipment = () =>{
     const onSubmit = async (e) => {
         e.preventDefault();
         await updateEquipment(equipment,id)
-        navigate("/equipmenthandler")
+        navigate("/equipment")
     }
 
     const loadEquipment = async () => {
@@ -45,25 +54,14 @@ export const EditEquipment = () =>{
 
 
 
+
+
     return (
         <div className="container" >
             <div className="row">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow" style={{backgroundColor: 'white'}}>
                     <h2 className="text-center m-4">Opdatering af udstyr</h2>
                     <form onSubmit={(e) => onSubmit(e)}>
-                        <div className="mb-3">
-                            <label htmlFor="Name" className="form-label">
-                                Type
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Indtast udstyrs-typen"
-                                name="type"
-                                value={type}
-                                onChange={(e) => onValueChange(e)}
-                            />
-                        </div>
                         <div className="mb-3">
                             <label htmlFor="number" className="form-label">
                                 Antal
@@ -76,32 +74,7 @@ export const EditEquipment = () =>{
                                 value={number}
                                 onChange={(e) => onValueChange(e)}
                             />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="Date" className="form-label">
-                                Størrelse/KG
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Indtast størrelse / KG"
-                                name="size"
-                                value={size}
-                                onChange={(e) => onValueChange(e)}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="reservationStart" className="form-label">
-                                Farve på udstyr
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Indtast farve"
-                                name="color"
-                                value={color}
-                                onChange={(e) => onValueChange(e)}
-                            />
+
                         </div>
                         <button  type="submit" className="btn btn-outline-primary">
                             Bekræft
