@@ -13,17 +13,7 @@ export const EditEquipment = () =>{
         number:"0",
     })
 
-    const[counter, setCounter] = useState(0)
 
-    //increase counter
-    const increase = () => {
-        setCounter(count => count + 1);
-    };
-
-    //decrease counter
-    const decrease = () => {
-        setCounter(count => count - 1);
-    };
 
 
     let navigate = useNavigate();
