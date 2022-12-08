@@ -52,7 +52,14 @@ function App() {
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>
             </Routes>
         </Router>
+
+        <div>
+
+        </div>
     </div>
+
+
+
   );
 }
 
