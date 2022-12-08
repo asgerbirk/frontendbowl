@@ -72,6 +72,8 @@ export const createEquipment = async (equipment) =>{
 }
 
 
+
+
 export const deleteEquipment = async (id) =>{
     return await axios.delete(`http://localhost:8080/api/v1/equipment/${id}`)
 }

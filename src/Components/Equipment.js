@@ -1,11 +1,10 @@
 import {useQuery} from "react-query";
 import {
-    addOneEquipment,
+
     deleteEquipment,
-    deleteOneEquipment,
+
     fetchEquipment,
-    getEquipmentById,
-    updateEquipment
+
 } from "./Queries";
 import {Button, Table} from "react-bootstrap";
 import {useEffect, useState} from "react";
@@ -14,7 +13,7 @@ import {Link} from "react-router-dom";
 export const Equipment = () =>{
 
     const [searchTerm, setSearchTerm] = useState("");
-    const[number, setNumber] = useState(0)
+
 
 
 

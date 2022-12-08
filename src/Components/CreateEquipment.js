@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useMutation, useQueryClient} from "react-query";
-import {createBowlingReservation} from "../Components/Queries";
+import {createBowlingReservation, createEquipment} from "../Components/Queries";
 import {useState} from "react";
 
 
@@ -8,7 +8,7 @@ export const CreateEquipment = () =>{
 
 
     //Attributes ( react hooks )
-    const [type, setType] = useState("");
+    const [equipmentType, setEquipmentType] = useState("");
     const [number, setNumber] = useState("");
     const [size, setSize] = useState("");
     const [color, setColor] = useState("");
@@ -16,7 +16,7 @@ export const CreateEquipment = () =>{
     const queryClient = useQueryClient();
     let navigate = useNavigate();
 
-    const {mutate, isError, isLoading} = useMutation(createBowlingReservation, {onSuccess: () => {
+    const {mutate, isError, isLoading} = useMutation(createEquipment, {onSuccess: () => {
             queryClient.invalidateQueries("equipment").then(r => console.log(r));
         }});
 
@@ -31,7 +31,7 @@ export const CreateEquipment = () =>{
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        mutate({type, number, size, color})
+        mutate({equipmentType, number, size, color})
         navigate("/")
     }
 
@@ -50,8 +50,8 @@ export const CreateEquipment = () =>{
                                 className="form-control"
                                 placeholder="Indtast udstyrs-typen"
                                 name="type"
-                                value={type}
-                                onChange={(e) => setType(e.target.value)}
+                                value={equipmentType}
+                                onChange={(e) => setEquipmentType(e.target.value)}
                             />
                         </div>
                         <div className="mb-3">
@@ -59,7 +59,7 @@ export const CreateEquipment = () =>{
                                 Antal
                             </label>
                             <input
-                                type={"text"}
+                                type={"number"}
                                 step="900"
                                 className="form-control"
                                 placeholder="Indtast antal"
@@ -73,7 +73,7 @@ export const CreateEquipment = () =>{
                                 Størrelse/KG
                             </label>
                             <input
-                                type={"text"}
+                                type={"number"}
                                 className="form-control"
                                 placeholder="Indtast størrelse / KG"
                                 name="size"
