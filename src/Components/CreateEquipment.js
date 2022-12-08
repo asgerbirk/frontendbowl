@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useMutation, useQueryClient} from "react-query";
-import {createBowlingReservation, createEquipment} from "../Components/Queries";
+import {createEquipment} from "../Components/Queries";
 import {useState} from "react";
 
 
@@ -32,7 +32,7 @@ export const CreateEquipment = () =>{
     const handleSubmit = async (e) =>{
         e.preventDefault();
         mutate({equipmentType, number, size, color})
-        navigate("/")
+        navigate("/equipment")
     }
 
     return (
@@ -45,14 +45,12 @@ export const CreateEquipment = () =>{
                             <label htmlFor="Name" className="form-label">
                                 Type
                             </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Indtast udstyrs-typen"
-                                name="type"
-                                value={equipmentType}
-                                onChange={(e) => setEquipmentType(e.target.value)}
-                            />
+                            <select className="container" onChange={(e) => setEquipmentType(e.target.value)}>
+                                <option value={"BOWLINGBALL"}> Bowling bold </option>
+                                <option value={"SHOES"}> Sko </option>
+                                <option value={"BOWLINGCONES"}> Bowling kegler </option>
+                                <option value={"HOCKEYPUK"}> Hockeypuk </option>
+                            </select>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="Email" className="form-label">
