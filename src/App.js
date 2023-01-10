@@ -7,7 +7,6 @@ import {Home} from "./Components/Home";
 import {AllBookings} from "./Reservation/AllBookings";
 import {EditBowlingReservation} from "./Reservation/EditBowlingReservation";
 import {SeeBowlingReservation} from "./Reservation/SeeBowlingReservation";
-import {SeeDiningReservation} from "./Reservation/SeeDiningReservation";
 import {Equipment} from "./Components/Equipment";
 import {CreateAirhockeyReservation} from "./Reservation/CreateAirhockeyReservation";
 import {CreateDiningReservation} from "./Reservation/CreateDiningReservation";
@@ -52,13 +51,7 @@ function App() {
                 <Route path = "*" element={<h1>PAGE NOT FOUND</h1>}/>
             </Routes>
         </Router>
-
-        <div>
-
-        </div>
     </div>
-
-
 
   );
 }

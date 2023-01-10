@@ -8,7 +8,6 @@ export const Home = () =>{
             <div className="welcome">
                 <h1>Velkommen til XPBowl</h1>
                 <h4>Klik her for at booke en tid</h4>
-
             </div>
 
         </div>
